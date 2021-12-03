@@ -13,8 +13,8 @@ module.exports = {
         ],
         sidebar: [
             '/',
-            '/art1',
-            ['/art2', 'Explicit link text']
+            '/demo-graphviz.md',
+            '/demo-mermaidjs.md'
         ]
     }
 }

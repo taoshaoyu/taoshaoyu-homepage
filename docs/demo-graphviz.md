@@ -1,6 +1,6 @@
-# Hello article 1
+# Demo of graphviz
 
-Linux kernel diagram
+Linux kernel diagram (graphviz)
 
 ```graphviz
 digraph matrix {
