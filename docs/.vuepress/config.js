@@ -3,6 +3,7 @@ module.exports = {
     description: 'Just playing around',
     plugins: [
       'vuepress-plugin-mermaidjs',
+      'vuepress-plugin-flowchart-js',
       'vuepress-plugin-graphviz'
     ],
     themeConfig: {
@@ -14,7 +15,8 @@ module.exports = {
         sidebar: [
             '/',
             '/demo-graphviz.md',
-            '/demo-mermaidjs.md'
+            '/demo-mermaidjs.md',
+            '/demo-flowchartjs.md'
         ]
     }
 }

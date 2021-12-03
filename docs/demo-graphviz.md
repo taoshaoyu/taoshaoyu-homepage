@@ -15,7 +15,7 @@ digraph matrix {
 	];
 	node [fixedsize=false,
 		fontname="Ubuntu"
-		fontsize=24,
+		fontsize=12,
 		height=1,
 		shape=box,
 		style="filled,setlinewidth(6)",
@@ -59,7 +59,7 @@ digraph matrix {
 		DM		 [color="#e27dd6ff",
 			fillcolor="#91b5c9",
 			fixedsize=true,
-			fontsize=20,
+			fontsize=10,
 			height=0.8,
 			label="Device\nModel",
 			shape=octagon,
@@ -68,7 +68,7 @@ digraph matrix {
 			style="filled,setlinewidth(6)"];
 		log_sys		 [color="#e27dd6ff",
 			fillcolor="#6a9ab1",
-			fontsize=20,
+			fontsize=10,
 			label="system run,\nmodules,\ngeneric\nHW access "];
 		DM -> log_sys		 [color="#e27dd6ff",
 			style="filled,setlinewidth(6)"];
@@ -80,7 +80,7 @@ digraph matrix {
 		H2		 [color="#e27dd6ff",
 			fillcolor="#777777",
 			fontcolor=white,
-			fontsize=20,
+			fontsize=10,
 			label="busess:\nPCI, USB ...",
 			row=chip];
 		bus_drv -> H2		 [color="#e27dd6ff",
@@ -123,14 +123,14 @@ digraph matrix {
 			style="filled,setlinewidth(6)"];
 		netif		 [color="#61c2c5",
 			fillcolor="#71809b",
-			fontsize=20,
+			fontsize=10,
 			label="network\ninterfaces\nand drivers"];
 		log_prot -> netif		 [color="#61c2c5",
 			style="filled,setlinewidth(6)"];
 		net_hw		 [color="#61c2c5",
 			fillcolor="#777777",
 			fontcolor=white,
-			fontsize=20,
+			fontsize=10,
 			label="network:\nEthernet, WiFi ...",
 			row=chip];
 		netif -> net_hw		 [color="#61c2c5",
@@ -182,14 +182,14 @@ digraph matrix {
 			weight=0];
 		logFS		 [color="#8383cc",
 			fillcolor="#6a9ab1",
-			fontsize=20,
+			fontsize=10,
 			label="logical\nfilesystems:\next3, xfs ..."];
 		VFS -> logFS		 [color="#8383cc",
 			style="filled,setlinewidth(6)"];
 		PC		 [color="#51bf5b",
 			fillcolor="#91b5c9",
 			fixedsize=true,
-			fontsize=20,
+			fontsize=10,
 			height=0.8,
 			label="page\ncache",
 			shape=octagon,
@@ -200,7 +200,7 @@ digraph matrix {
 		mmap		 [color="#51bf5b",
 			fillcolor="#91b5c9",
 			fixedsize=true,
-			fontsize=20,
+			fontsize=10,
 			height=0.8,
 			label="memory\nmapping",
 			shape=octagon,
@@ -210,7 +210,7 @@ digraph matrix {
 			weight=0];
 		block		 [color="#8383cc",
 			fillcolor="#71809b",
-			fontsize=20,
+			fontsize=10,
 			label="Block\ndevices\nand drivers"];
 		logFS -> block		 [color="#8383cc",
 			style="filled,setlinewidth(6)"];
@@ -223,7 +223,7 @@ digraph matrix {
 		H4		 [color="#8383cc",
 			fillcolor="#777777",
 			fontcolor=white,
-			fontsize=20,
+			fontsize=10,
 			label="storage devices:\nSCSI, NVMe ...",
 			row=chip];
 		block -> H4		 [color="#8383cc",
@@ -273,7 +273,7 @@ digraph matrix {
 		sync		 [color="#c46747",
 			fillcolor="#91b5c9",
 			fixedsize=true,
-			fontsize=20,
+			fontsize=10,
 			fontname="Ubuntu Condensed"
 			label=synchronization,
 			height=0.7,
@@ -288,14 +288,14 @@ digraph matrix {
 			style="filled,setlinewidth(6)"];
 		IRQ		 [color="#c46747",
 			fillcolor="#71809b",
-			fontsize=20,
+			fontsize=10,
 			label="interrupts\ncore,\nCPU arch"];
 		sched -> IRQ		 [color="#c46747",
 			style="filled,setlinewidth(6)"];
 		CPU		 [color="#c46747",
 			fillcolor="#777777",
 			fontcolor=white,
-			fontsize=20,
+			fontsize=10,
 			row=chip];
 		IRQ -> CPU		 [color="#c46747",
 			style="filled,setlinewidth(6)"];
@@ -316,7 +316,7 @@ digraph matrix {
 		HI		 [color="#cfbf57ff",
 			fillcolor=white,
 			fixedsize=true,
-			fontsize=20,
+			fontsize=10,
 			height=0.6,
 			label="human\ninterface",
 			row=func,
@@ -343,7 +343,7 @@ digraph matrix {
 			style="filled,setlinewidth(6)"];
 		HID		 [color="#cfbf57ff",
 			fillcolor="#71809b",
-			fontsize=20,
+			fontsize=10,
 			URL="https://www.kernel.org/doc/html/latest/hid/",
 			label="HI\nperipherals\ndrivers"];
 		F7 -> HID		 [color="#cfbf57ff",
@@ -351,7 +351,7 @@ digraph matrix {
 		H7		 [color="#cfbf57ff",
 			fillcolor="#777777",
 			fontcolor=white,
-			fontsize=20,
+			fontsize=10,
 			label="display, keyboard,\nmouse, audio",
 			row=chip];
 		HID -> H7		 [color="#cfbf57ff",
@@ -539,7 +539,7 @@ digraph matrix {
 		H5		 [color="#51bf5b",
 			fillcolor="#777777",
 			fontcolor=white,
-			fontsize=20,
+			fontsize=10,
 			label="MMU, RAM",
 			row=chip];
 	}
