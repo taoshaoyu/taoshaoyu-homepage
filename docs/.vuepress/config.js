@@ -2,7 +2,8 @@ module.exports = {
     title: 'Hello VuePress',
     description: 'Just playing around',
     plugins: [
-      'vuepress-plugin-mermaidjs'
+      'vuepress-plugin-mermaidjs',
+      'vuepress-plugin-graphviz'
     ],
     themeConfig: {
         nav: [

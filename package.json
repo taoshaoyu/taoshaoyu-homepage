@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@aduh95/viz.js": "3.1.0",
     "vuepress": "^1.8.2",
+    "vuepress-plugin-graphviz": "^1.0.1",
     "vuepress-plugin-mermaidjs": "^1.8.1"
   }
 }
