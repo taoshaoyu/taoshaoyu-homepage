@@ -1,0 +1,8 @@
+digraph G { 
+    rankdir=TP
+
+    node [shape=record];
+    
+    A->B
+
+}
