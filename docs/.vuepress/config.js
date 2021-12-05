@@ -16,7 +16,8 @@ module.exports = {
             '/',
             '/demo-graphviz.md',
             '/demo-mermaidjs.md',
-            '/demo-flowchartjs.md'
+            '/demo-flowchartjs.md',
+            '/demo-misc.md'
         ]
     }
 }

@@ -1,0 +1,39 @@
+digraph G{ 
+    
+    rankdir=LR
+
+    node [shape=record];
+    
+    CPUState [
+        label="name | head"
+    ]
+
+    KVMState [
+        label = " 
+            int nr_slots |
+            int vmfd |
+        "
+    ]
+    
+    KVMSlot [
+        label = "
+            <f0> [ KVMSlot ] |
+            [hwaddr] start_addr |
+            ram_addr_t memory_size |
+            void *ram |
+            int flags
+        "
+    ]
+
+    KVMMemoryListener [
+        label = "
+            [ KVMMemoryListener ] |
+            <f0> KVMSlot *slots;
+        "
+    ]
+
+
+    KVMMemoryListener:f0 -> KVMSlot:f0
+
+
+}
