@@ -1,0 +1,27 @@
+digraph top_down {
+    rankdir=LR
+
+    subgraph cluster_1 {
+        label="accel";
+        style=filled;
+        node [style=filled, shape="record"];
+        kvm [
+            label="[kvm] |
+                kvm_accel_class_init() | 
+                kvm_init() |
+                kvm_init_vcpu() |
+                kvm_ioctl 
+                ";
+        ]
+
+        tcg [
+            label="[tcg] |
+                tcg_init() |
+                ";
+        ]
+
+        
+    }
+
+
+}

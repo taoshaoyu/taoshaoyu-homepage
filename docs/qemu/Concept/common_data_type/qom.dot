@@ -1,0 +1,28 @@
+digraph qom {
+    rankdir=LR
+
+    subgraph cluster_2 {
+        label="Low Level";
+        style=filled;
+        node [style=filled, shape="record"];
+        TypeInfo [
+            label="<f0> [TypeInfo] |
+                char* name |
+                char* parent |
+                void (*instance_init)(Object *obj) |
+                void (*instance_post_init)(Object *obj) |
+                void (*instance_finalize)(Object *obj) |
+                void (*class_init)(ObjectClass *klass, void *data) |
+                void (*class_base_init)(ObjectClass *klass, void *data) |
+                void *class_data
+                ";
+        ]
+
+        kvm_accel_ops_type -> TypeInfo:<f0>
+        tcg_accel_type -> TypeInfo:<f0>
+
+        
+    }
+
+
+}
