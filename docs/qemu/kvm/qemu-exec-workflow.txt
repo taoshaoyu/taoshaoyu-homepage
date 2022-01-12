@@ -1,0 +1,101 @@
+main
+	qemu_init
+		qemu_init_subsystems
+			module_call_init(MODULE_INIT_QOM);			// type_init() ,所有的 注册函数将被注册
+			module_call_init(MODULE_INIT_MIGRATION);	// migration_init()
+		machine=select_machine()
+		qemu_create_machine(machine);				// 进入该函数之前，current_machine 为空
+			current_machine = MACHINE(object_new_with_class(OBJECT_CLASS(machine_class)));      // 构造全局变量 current_machine
+			cpu_exec_init_all();
+			page_size_init();
+		qmp_x_exit_preconfig
+			qemu_init_board							// 初始化 board 部分
+				machine_run_board_init()
+					pc_q35_init()
+						x86_cpus_init()
+						pc_memory_init()
+							pc_system_firmware_init()
+								x86_bios_rom_init()
+							fw_cfg_arch_create()
+							x86_load_linux()			// load kernel, initrd，这里，还有load multiboot
+						pc_i8259_create()
+							kvm_i8259_init()
+						ioapic_init_gsi()
+						pc_basic_device_init()
+							kvm_pit_init()
+							pcspk_init()
+							i8257_dma_init()
+							pc_superio_init()
+						ich9_lpc_pm_init()
+						pc_cmos_init(pcms, idebus[0], idebus[1], rtc_state);
+						pc_vga_init(isa_bus, host_bus);
+						pc_nic_init(pcmc, isa_bus, host_bus);
+			qemu_create_cli_devices()
+			qemu_machine_creation_done()	// 这里，会到 do_run_on_cpu	, 是否标记着所有的dev 完成？
+			qmp_cont
+				vm_start
+	qemu_main_loop()
+		os_host_main_loop_wait()
+
+============================================================================================================
+从线程的角度：
+
+Thrd "rcu"
+
+Thrd "accel"
+	kvm_vcpu_thread_fn()
+		kvm_cpu_exec()
+			[ kvm_vcpu_ioctl(cpu, KVM_RUN, 0);    // 通过监控，可以看到 KVM_ENTRY, KVM_EXIT 事件，因此，kvm_run 应该会导致 app 阻塞，而后续的 exit，会从这里出来			
+			  kvm_arch_post_run(cpu, run); 
+			  switch( run->exit_reason ){
+				 XXXX
+			  }
+			]
+			
+		qemu_wait_io_event(cpu);
+			qemu_wait_io_event_common(cpu)
+				process_queued_cpu_work()	// 这里，是真正处理 do_run_on_cpu 的worker
+
+Thrd "main"
+	1. qemu_init() 完成初始化部分，部分会调用到 do_run_on_cpu
+	2. qemu_main_loop(),进入循环
+
+============================================================================================================
+常规函数：
+kvm_set_irq() 怀疑是外设设置irq
+
+x86_load_linux() 应该是处理 load kernel , initrd ... 之类的地方
+
+============================================================================================================
+关于外设
+线索：
+1，可以从 lsacpi 来查看，看到的是 aml_XXX 函数构造的 acpi 设备？
+2. 看上去，board 中，硬编码了多个总线或者其他的设备创建 比如 pc_superio_init()，有 isa_create_simple，不理解为啥这样
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
