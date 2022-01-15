@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Hello VuePress',
+    title: "Taoshaoyu's homepage",
     description: 'Just playing around',
     plugins: [
       'vuepress-plugin-mermaidjs',
@@ -10,7 +10,7 @@ module.exports = {
         nav: [
           { text: 'Home', link: '/' },
           { text: 'Guide', link: '/guide/' },
-          { text: 'External', link: 'https://google.com' },
+          { text: 'Qeumu', link: '/qemu/' }
         ],
         sidebar: [
             '/',
