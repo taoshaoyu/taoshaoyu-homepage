@@ -6,13 +6,15 @@ module.exports = {
       extendMarkdown: md => {
         md.set({ html: true })
         md.use(require('markdown-it-plantuml'))
+        md.linkify.set({ fuzzyEmail: false })
       }
     },
     
     plugins: [
       'vuepress-plugin-mermaidjs',
       'vuepress-plugin-flowchart-js',
-      'vuepress-plugin-graphviz'
+      'vuepress-plugin-graphviz',
+      '@renovamen/vuepress-plugin-katex'
     ],
     themeConfig: {
         nav: [
