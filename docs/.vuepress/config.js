@@ -20,7 +20,8 @@ module.exports = {
         nav: [
           { text: 'Home', link: '/' },
           { text: 'Guide', link: '/guide/' },
-          { text: 'Qeumu', link: '/qemu/' }
+          { text: 'Qeumu', link: '/qemu/' },
+          { text: 'Private', link: '/priv/' }
         ],
         sidebar: [
             '/',
